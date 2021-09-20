@@ -8,19 +8,31 @@ Dark green: #28b485
 */
 
 /* universal reset removes the extra padding added by browsers by default */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit; /* considered better practice to force box-sizing to inherit from the body */
+}
+
+html {
+  /* font-size: 10px; */
+  /* Since 1 rem is = the root font-size, 1 rem = 10px. To convert the rest of the file, divide the px units by 10 to get their rem value. */
+  /* But declaring the font-size in px prevents users from customizing it when they visit your site. Bad UX. */
+  /* Use percentage instead. Note that it will inherit the 16px default but it's preferable to work with the easier calculation of 10px */
+  /* So calculate the percentage to use: it will be 10% of 16px. This allows the user to change font size and make it easier for devs to calculate rem units. */
+
+  font-size: 62.5%;
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
   line-height: 1.7;
   color: #777;
-  padding: 30px;
+  padding: 3rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -40,12 +52,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .logo:hover {
@@ -68,29 +80,29 @@ body {
 
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation: moveInLeft 1s ease-out;
 }
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 @keyframes moveInLeft {
   0% {
     opacity: 0; /*invisible*/
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -102,11 +114,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -118,7 +130,7 @@ body {
 @keyframes moveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
 
   100% {
@@ -141,21 +153,22 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding:15px 40px;
+  padding:1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all .2s;
   position: relative; /*this is for the .btn::after element to reference its position from*/
+  font-size: 1.6rem;
 }
 
 .btn:hover {
   transform: translateY(-3px); /*moves up*/
-  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 .btn:active {
   transform: translateY(-1px); /* pushes into the page when clicked*/
-  box-shadow: 0 5px 10px rgba(0,0,0,.2); /*reduce the shadow/blur on click to make it look closer to the page*/
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.2); /*reduce the shadow/blur on click to make it look closer to the page*/
 }
 
 .btn-white {
@@ -168,7 +181,7 @@ body {
   display: inline-block;
   height: 100%; /*the after pseudo-element references the initial .btn element so we want it to be identical*/
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   position: absolute;
   top: 0;
   left: 0;
