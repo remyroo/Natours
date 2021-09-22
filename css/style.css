@@ -30,44 +30,38 @@ body {
   background-position: top;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem; }
-
-.header__logo {
-  height: 3.5rem; }
-
-.header__logo:hover {
-  animation: spinner 1s ease-out; }
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation: spinner 1s ease-out; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
 .heading-primary {
   color: #FFF;
   text-transform: uppercase;
   /* backface-visibility: hidden;  hack fix for when animaiton is shaky */ }
-
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  animation: moveInLeft 1s ease-out; }
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  animation: moveInRight 1s ease-out;
-  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    margin-bottom: 6rem; }
 
 @keyframes moveInLeft {
   0% {
@@ -104,8 +98,7 @@ body {
   100% {
     transform: rotate(360deg); } }
 
-.btn:link,
-.btn:visited {
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -120,6 +113,9 @@ body {
   transform: translateY(-3px);
   /*moves up*/
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0; }
 
 .btn:active {
   transform: translateY(-1px);
@@ -130,6 +126,8 @@ body {
 .btn--white {
   background-color: #FFF;
   color: #777; }
+  .btn--white::after {
+    background-color: #FFF; }
 
 .btn::after {
   content: "";
@@ -145,17 +143,10 @@ body {
   /*it should sit behind the initial .btn*/
   transition: all, 0.4s; }
 
-.btn--white::after {
-  background-color: #FFF; }
-
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0; }
-
 .btn--animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards;
   /*
-  the fill mode applies the styles before the animation starts,
-  ensuring the btn isn't on the screen till the animaiton moves it there
-  */ }
+    the fill mode applies the styles before the animation starts,
+    ensuring the btn isn't on the screen till the animaiton moves it there
+    */ }
