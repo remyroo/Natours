@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto; // center
 
   // 'not' selects everything except the last child.
@@ -13,7 +12,6 @@
   // use attribute selector to select all columns and apply common styling.
   // this will select each class which starts with 'col-'.
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child) {
