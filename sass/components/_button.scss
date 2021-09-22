@@ -1,0 +1,59 @@
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative; /*this is for the .btn::after element to reference its position from*/
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px); /*moves up*/
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px); /* pushes into the page when clicked*/
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2); /*reduce the shadow/blur on click to make it look closer to the page*/
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-gray-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%; /*the after pseudo-element references the initial .btn element so we want it to be identical*/
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /*it should sit behind the initial .btn*/
+    transition: all, 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;
+    /*
+    the fill mode applies the styles before the animation starts,
+    ensuring the btn isn't on the screen till the animaiton moves it there
+    */
+  }
+}

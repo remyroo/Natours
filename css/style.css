@@ -1,68 +1,3 @@
-/* universal reset removes the extra padding added by browsers by default */
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  /* considered better practice to force box-sizing to inherit from the body */ }
-
-html {
-  /* font-size: 10px; */
-  /* Since 1 rem is = the root font-size, 1 rem = 10px. To convert the rest of the file, divide the px units by 10 to get their rem value. */
-  /* But declaring the font-size in px prevents users from customizing it when they visit your site. Bad UX. */
-  /* Use percentage instead. Note that it will inherit the 16px default but it's preferable to work with the easier calculation of 10px */
-  /* So calculate the percentage to use: it will be 10% of 16px. This allows the user to change font size and make it easier for devs to calculate rem units. */
-  font-size: 62.5%; }
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__logo:hover {
-    animation: spinner 1s ease-out; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
-
-.heading-primary {
-  color: #FFF;
-  text-transform: uppercase;
-  /* backface-visibility: hidden;  hack fix for when animaiton is shaky */ }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moveInLeft 1s ease-out; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out;
-    margin-bottom: 6rem; }
-
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -97,6 +32,51 @@ body {
     transform: rotate(0deg); }
   100% {
     transform: rotate(360deg); } }
+
+/* universal reset removes the extra padding added by browsers by default */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* considered better practice to force box-sizing to inherit from the body */ }
+
+html {
+  /* font-size: 10px; */
+  /* Since 1 rem is = the root font-size, 1 rem = 10px. To convert the rest of the file, divide the px units by 10 to get their rem value. */
+  /* But declaring the font-size in px prevents users from customizing it when they visit your site. Bad UX. */
+  /* Use percentage instead. Note that it will inherit the 16px default but it's preferable to work with the easier calculation of 10px */
+  /* So calculate the percentage to use: it will be 10% of 16px. This allows the user to change font size and make it easier for devs to calculate rem units. */
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  color: #FFF;
+  text-transform: uppercase;
+  /* backface-visibility: hidden;  hack fix for when animaiton is shaky */ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    margin-bottom: 6rem; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -150,3 +130,25 @@ body {
     the fill mode applies the styles before the animation starts,
     ensuring the btn isn't on the screen till the animaiton moves it there
     */ }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__logo:hover {
+    animation: spinner 1s ease-out; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
