@@ -8,15 +8,33 @@
 }
 
 html {
-  /* font-size: 10px; */
+  /* set the base font-size: 10px; */
   /* Since 1 rem is = the root font-size, 1 rem = 10px. To convert the rest of the file, divide the px units by 10 to get their rem value. */
   /* But declaring the font-size in px prevents users from customizing it when they visit your site. Bad UX. */
   /* Use percentage instead. Note that it will inherit the 16px default but it's preferable to work with the easier calculation of 10px */
-  /* So calculate the percentage to use: it will be 10% of 16px. This allows the user to change font size and make it easier for devs to calculate rem units. */
+  /* So calculate the percentage to use: it will be 10% of 16px (10/16). This allows the user to change font size and make it easier for devs to calculate rem units. */
 
   font-size: 62.5%;
+
+  // the order of media queries matters, the last one will apply when overlapping sizes
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; // say we want the font size to be 9px. 1rem = 9px, 9/16 = 56.25
+  }
+
+  @include respond(tab-port) { // width < 900?
+    font-size: 50%; // 1rem = 8px, 8/16 = 50
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1rem = 12px, 12/16
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
 }

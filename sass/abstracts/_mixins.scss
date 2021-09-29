@@ -12,3 +12,40 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px: Phone
+600 - 900px: Tablet portrait mode
+900 - 1200px: Tablet landscape mode
+[1200 - 1800px: Our normal styles apply]
+1800px and more : Big desktop
+
+$breakpoint argument options:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+// @content directive allows us to pass in a block of code into the mixin
+// rems don't work as expected for media queries. Use ems instead.
+// 1 rem = 16px.
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) { @content }; // 600px
+    // max-width = apply styles if size is 600 or less
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) { @content }; // 900px
+  }
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) { @content }; // 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) { @content }; // 1800px
+    // min-width = apply styles if size is 1800 or more
+  }
+}
